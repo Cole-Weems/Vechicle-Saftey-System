@@ -12,9 +12,18 @@ After running
 How it works:
 This model runs using detectnet and was trained on 100 epochs
 
-## Running this project
+View a video explanation here 
+https://youtu.be/D-FK56_lhzo
 
-Guide to using your own dataset and training with detectnet (mix of game plan and self made guide)
+## How to run this project own your own nano
+
+	Git clone https://github.com/Cole-Weems/Vechicle-Saftey-System.git
+
+	NET=~/path_to_model/street_real_model
+
+## How you can do this project yourself
+
+Guide to using your own dataset and training with detectnet (you will need a jetson orin nano I believe)
 
 While looking for a dataset, ensure the annotations provided are in the .xml format
 
@@ -24,23 +33,22 @@ Organize your dataset as follows(case and space sensitive):
 
 Annotations
 
-	All xml files
+All xml files
 
 labels.txt
 
-	All classes alphabetical order in a txt file
+All classes alphabetical order in a txt file
 
 JPEGImages
 
-	All images, not in folders (if you have more then 6000 images, try to delete some to make the transfer to jetson easier)
+All images, not in folders (if you have more then 6000 images, try to delete some to make the transfer to jetson easier)
 
-ImageSets
+ImageSets/Main:
 
-	Main
-		trainval.txt (all images names)
-		val.txt (choose 10% of your overall images and leave their names here)
-		test.txt (choose 40% of your overall images and leave their names here)
-		train.txt (this should be the majority of your images, leave their names here)
+trainval.txt (all images names)
+val.txt (choose 10% of your overall images and leave their names here)
+test.txt (choose 40% of your overall images and leave their names here)
+train.txt (this should be the majority of your images, leave their names here)
 
 Your dataset should now be prepared
 
@@ -52,29 +60,25 @@ The changed python files will be attached here, it will run 100 epochs but can b
 
 Now in the terminal run the commands as follows (but read the commands too as there are things that will have to be replaced with your names):
 
-cd ~/jetson-inference/
-./docker/run.sh
+	cd ~/jetson-inference/
+	./docker/run.sh
 
-cd python/training/detection/ssd
+	cd python/training/detection/ssd
 
-python3 train_ssd.py \
-  --dataset-type=voc \
-  --data data/signs_test \
-  --model-dir=models/sign_model
-  --num-workers=2
-  --batch-size=2
+	python3 train_ssd.py \
+  	--dataset-type=voc \
+  	--data data/signs_test \
+  	--model-dir=models/sign_model
+  	--num-workers=2
+  	--batch-size=2
   
 
 
 
-python3 onnx_export.py --model-dir=models/name_of_model
+	python3 onnx_export.py --model-dir=models/name_of_model
 
-NET=~/jetson-inference/python/training/detection/ssd/models/name_of_model
+	NET=~/jetson-inference/python/training/detection/ssd/models/name_of_model
 
-detectnet --model=jetson-inference/python/training/detection/ssd/models/name_of_model/ssd-mobilenet.onnx           --input-blob=input_0           --output-cvg=scores           --output-bbox=boxes           --labels=jetson-inference/python/training/detection/ssd/data/name_of_dataset/labels.txt input (photo or video) output (diffrent name, same file type)
+	detectnet --model=jetson-inference/python/training/detection/ssd/models/name_of_model/ssd-mobilenet.onnx           --input-blob=input_0           --output-cvg=scores           --output-bbox=boxes           --labels=jetson-inference/python/training/detection/ssd/data/name_of_dataset/labels.txt input (photo or video) output (diffrent name, same file type)
 
 Now you have a working detectnet model with your own dataset
-
-
-View a video explanation here 
-https://youtu.be/D-FK56_lhzo
