@@ -23,7 +23,7 @@ Python 3.9+
 
 Jetson containers
 
-## How to run this project own your own nano
+## How to run this project own your own nano (model not uploaded yet, coming soon)
 
 	Git clone https://github.com/Cole-Weems/Vechicle-Saftey-System.git
 
