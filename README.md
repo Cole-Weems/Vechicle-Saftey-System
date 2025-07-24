@@ -71,7 +71,7 @@ Now in the terminal run the commands as follows (but read the commands too as th
 	cd ~/jetson-inference/
 	./docker/run.sh
 
-	cd python/training/detection/ssd
+		cd python/training/detection/ssd
 
 	python3 train_ssd.py \
   	--dataset-type=voc \
