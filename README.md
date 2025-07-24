@@ -2,11 +2,11 @@
 
 This project in its current state can detect 4 diffrent classes trianed on this datatset: https://www.kaggle.com/datasets/andrewmvd/road-sign-detection. The end purpose of this project would be to assist drivers on the road to make it a safer place. In the future, it could warn a driver not to go at a stoplight if people are still crossing. Or, it could warn of cars in the blindspot of the driver. Currently it can use detectnet and draw bounding boxes around its 4 clases.
 
-Before running
+## Before running
 <video width="630" height="300" src="https://github.com/user-attachments/assets/8262834a-45fa-4d79-ab2d-e893da27a526"></video>
 
 
-After running
+## After running
 <video width="630" height="300" src="https://github.com/user-attachments/assets/c6197dc8-cf41-4d75-af45-02afac6710fd"></video>
 
 How it works:
@@ -18,7 +18,9 @@ https://youtu.be/D-FK56_lhzo
 ## Prerequisites
 
 Nvidia jetson orin nano
+
 Python 3.9+
+
 Jetson containers
 
 ## How to run this project own your own nano
