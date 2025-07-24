@@ -29,6 +29,8 @@ Jetson containers
 
 	NET=~/path_to_model/street_real_model
 
+ 	detectnet --model=path_to_model/street_real_model/ssd-mobilenet.onnx           --input-blob=input_0           --output-cvg=scores           --output-bbox=boxes           --labels=path_to_dataset/street_test/labels.txt light.mp4 light_output_self.mp4
+
 ## How you can do this project yourself
 
 Guide to using your own dataset and training with detectnet (you will need a jetson orin nano I believe)
