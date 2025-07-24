@@ -66,12 +66,12 @@ The changed python files will be attached here, it will run 100 epochs but can b
 
 
 
-Now in the terminal run the commands as follows (but read the commands too as there are things that will have to be replaced with your names):
+Now in the terminal run the commands as follows (but read the commands too as there are things that will have to be replaced with your names)(Each command is seperrate):
 
 	cd ~/jetson-inference/
 	./docker/run.sh
 
-		cd python/training/detection/ssd
+	cd python/training/detection/ssd
 
 	python3 train_ssd.py \
   	--dataset-type=voc \
